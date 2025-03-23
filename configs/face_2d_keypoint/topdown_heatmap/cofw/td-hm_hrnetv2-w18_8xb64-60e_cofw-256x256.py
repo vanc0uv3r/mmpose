@@ -1,7 +1,7 @@
 _base_ = ['../../../_base_/default_runtime.py']
 
 # runtime
-train_cfg = dict(max_epochs=60, val_interval=1)
+train_cfg = dict(max_epochs=20, val_interval=1)
 
 # optimizer
 optim_wrapper = dict(optimizer=dict(
@@ -74,8 +74,8 @@ model = dict(
                 num_channels=(18, 36, 72, 144),
                 multiscale_output=True),
             upsample=dict(mode='bilinear', align_corners=False)),
-        init_cfg=dict(
-            type='Pretrained', checkpoint='open-mmlab://msra/hrnetv2_w18'),
+        # init_cfg=dict(
+        #     type='Pretrained', checkpoint='open-mmlab://msra/hrnetv2_w18'),
     ),
     neck=dict(
         type='FeatureMapProcessor',
@@ -84,7 +84,7 @@ model = dict(
     head=dict(
         type='HeatmapHead',
         in_channels=270,
-        out_channels=29,
+        out_channels=68,
         deconv_out_channels=None,
         conv_out_channels=(270, ),
         conv_kernel_sizes=(1, ),
@@ -97,9 +97,9 @@ model = dict(
     ))
 
 # base dataset settings
-dataset_type = 'COFWDataset'
+dataset_type = 'VertebraeDataset'
 data_mode = 'topdown'
-data_root = 'data/cofw/'
+data_root = 'data/vertebrae_dataset/'
 
 # pipelines
 train_pipeline = [
@@ -132,7 +132,7 @@ train_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_mode=data_mode,
-        ann_file='annotations/cofw_train.json',
+        ann_file='annotations/train.json',
         data_prefix=dict(img='images/'),
         pipeline=train_pipeline,
     ))
@@ -146,7 +146,7 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_mode=data_mode,
-        ann_file='annotations/cofw_test.json',
+        ann_file='annotations/test.json',
         data_prefix=dict(img='images/'),
         test_mode=True,
         pipeline=val_pipeline,
