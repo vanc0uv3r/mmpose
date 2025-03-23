@@ -145,7 +145,7 @@ train_dataloader = dict(
 #         test_mode=True,
 #         pipeline=val_pipeline,
 #     ))
-# test_dataloader = val_dataloader
+test_dataloader = None
 
 # evaluators
 # test_evaluator = val_evaluator
