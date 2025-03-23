@@ -103,6 +103,9 @@ test_cfg=None
 train_pipeline = [
     dict(type='LoadImage'),
     dict(type='GetBBoxCenterScale'),
+    dict(type='RandomFlip', direction='horizontal'),
+    dict(type='RandomHalfBody'),
+    dict(type='RandomBBoxTransform'),
     dict(type='TopdownAffine', input_size=codec['input_size']),
     dict(type='GenerateTarget', encoder=codec),
     dict(type='PackPoseInputs')
