@@ -99,6 +99,7 @@ model = dict(
 dataset_type = 'VertebraeDataset'
 data_mode = 'topdown'
 data_root = 'data/vertebrae_dataset/'
+num_keypoints = 68
 
 # pipelines
 train_pipeline = [
@@ -152,6 +153,6 @@ test_dataloader = val_dataloader
 val_evaluator = dict(
     type='NME',
     norm_mode='keypoint_distance',
-    keypoint_indices=[0, 1]
+    keypoint_indices=[0, 67]
 )
 test_evaluator = val_evaluator
