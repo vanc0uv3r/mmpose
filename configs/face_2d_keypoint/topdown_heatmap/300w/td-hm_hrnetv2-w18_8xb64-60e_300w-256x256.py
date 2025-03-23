@@ -34,7 +34,7 @@ codec = dict(
     type='MSRAHeatmap',
     input_size=(256, 256),
     heatmap_size=(64, 64),
-    )
+    sigma=1.5)
 
 # model settings
 model = dict(
