@@ -88,13 +88,14 @@ model = dict(
         conv_kernel_sizes=(1, ),
         loss=dict(type='KeypointMSELoss', use_target_weight=True),
         decoder=codec),
-    )
+    test_cfg=None)
 
 # base dataset settings
 dataset_type = 'VertebraeDataset'
 data_mode = 'topdown'
 data_root = 'data/vertebrae_dataset/'
 num_keypoints = 68
+test_cfg=None
 
 # pipelines
 train_pipeline = [
