@@ -36,6 +36,8 @@ codec = dict(
     heatmap_size=(64, 64),
     sigma=1.5)
 
+val_cfg=None
+
 # model settings
 model = dict(
     type='TopdownPoseEstimator',
