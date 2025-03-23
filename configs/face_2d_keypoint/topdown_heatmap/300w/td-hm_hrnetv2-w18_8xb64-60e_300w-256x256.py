@@ -74,8 +74,6 @@ model = dict(
                 num_channels=(18, 36, 72, 144),
                 multiscale_output=True),
             upsample=dict(mode='bilinear', align_corners=False)),
-        init_cfg=dict(
-            type='Pretrained', checkpoint='open-mmlab://msra/hrnetv2_w18'),
     ),
     neck=dict(
         type='FeatureMapProcessor',
