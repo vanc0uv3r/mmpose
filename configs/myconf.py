@@ -3,6 +3,11 @@ data_mode = 'topdown'
 
 
 train_cfg = dict(max_epochs=20, val_interval=1)
+test_cfg=dict(
+        flip_test=True,
+        flip_mode='heatmap',
+        shift_heatmap=True,
+    )
 
 # optimizer
 optim_wrapper = dict(optimizer=dict(
@@ -23,6 +28,11 @@ param_scheduler = [
         gamma=0.1,
         by_epoch=True)
 ]
+
+test_evaluator = dict(
+    type='NME',
+    norm_mode='keypoint_distance',
+)
 
 # automatically scaling LR based on the actual training batch size
 auto_scale_lr = dict(base_batch_size=128)
@@ -75,11 +85,8 @@ model = dict(
         deconv_out_channels=None,
         loss=dict(type='KeypointMSELoss', use_target_weight=True),
         decoder=codec),
-    test_cfg=dict(
-        flip_test=True,
-        flip_mode='heatmap',
-        shift_heatmap=True,
-    ))
+    test_cfg=test_cfg,
+    )
 
 train_pipeline = [
     dict(type='LoadImage'),
@@ -116,10 +123,7 @@ test_dataloader = dict(
         data_prefix=dict(img='test'),
         metainfo=dict(from_file='configs/_base_/datasets/vertebrae.py'),
         ),
-        pipeline=test_pipeline
+        pipeline=test_pipeline,
+        test_mode=True,
     )
 
-test_evaluator = dict(
-    type='NME',
-    norm_mode='keypoint_distance',
-)
