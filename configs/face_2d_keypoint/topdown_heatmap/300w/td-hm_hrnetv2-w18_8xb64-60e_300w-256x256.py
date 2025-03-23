@@ -103,12 +103,6 @@ data_root = 'data/vertebrae_dataset/'
 train_pipeline = [
     dict(type='LoadImage'),
     dict(type='GetBBoxCenterScale'),
-    dict(type='RandomFlip', direction='horizontal'),
-    dict(
-        type='RandomBBoxTransform',
-        shift_prob=0,
-        rotate_factor=60,
-        scale_factor=(0.75, 1.25)),
     dict(type='TopdownAffine', input_size=codec['input_size']),
     dict(type='GenerateTarget', encoder=codec),
     dict(type='PackPoseInputs')
