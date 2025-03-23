@@ -90,5 +90,6 @@ dataset_info = dict(
         67: dict(name='kpt-67', id=67, color=[255, 0, 0], type='', swap='')
     },
     skeleton_info={},
+    keypoint_indices=(0, 1),
     joint_weights=[1.] * 68,
     sigmas=[])
