@@ -97,9 +97,9 @@ model = dict(
     ))
 
 # base dataset settings
-dataset_type = 'Face300WDataset'
+dataset_type = 'VertebraeDataset'
 data_mode = 'topdown'
-data_root = 'data/300w/'
+data_root = 'data/vertebrae_dataset/'
 
 # pipelines
 train_pipeline = [
@@ -132,7 +132,7 @@ train_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_mode=data_mode,
-        ann_file='annotations/face_landmarks_300w_train.json',
+        ann_file='annotations/train.json',
         data_prefix=dict(img='images/'),
         pipeline=train_pipeline,
     ))
@@ -146,8 +146,9 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         data_mode=data_mode,
-        ann_file='annotations/face_landmarks_300w_valid.json',
+        ann_file='annotations/test.json',
         data_prefix=dict(img='images/'),
+        metainfo=dict(from_file='configs/_base_/datasets/vertebrae.py'),
         test_mode=True,
         pipeline=val_pipeline,
     ))
