@@ -1,7 +1,7 @@
 _base_ = ['../../../_base_/default_runtime.py']
 
 # runtime
-train_cfg = dict(max_epochs=60, val_interval=1)
+train_cfg = dict(max_epochs=60)
 
 # optimizer
 optim_wrapper = dict(optimizer=dict(
@@ -27,7 +27,7 @@ param_scheduler = [
 auto_scale_lr = dict(base_batch_size=512)
 
 # hooks
-default_hooks = dict(checkpoint=dict(save_best='NME', rule='less', interval=1))
+default_hooks = dict()
 
 # codec settings
 codec = dict(
