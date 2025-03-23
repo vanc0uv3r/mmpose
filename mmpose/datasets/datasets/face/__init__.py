@@ -11,5 +11,5 @@ from .wflw_dataset import WFLWDataset
 __all__ = [
     'Face300WDataset', 'WFLWDataset', 'AFLWDataset', 'COFWDataset',
     'CocoWholeBodyFaceDataset', 'LapaDataset', 'Face300WLPDataset',
-    'Face300VWDataset'
+    'Face300VWDataset', "VertebraeDataset"
 ]

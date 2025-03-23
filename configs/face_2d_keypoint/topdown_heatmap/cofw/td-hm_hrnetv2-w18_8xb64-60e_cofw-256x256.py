@@ -134,6 +134,7 @@ train_dataloader = dict(
         data_mode=data_mode,
         ann_file='annotations/train.json',
         data_prefix=dict(img='images/'),
+        metainfo=dict(from_file='configs/_base_/datasets/vertebrae.py'),
         pipeline=train_pipeline,
     ))
 val_dataloader = dict(
@@ -149,6 +150,7 @@ val_dataloader = dict(
         ann_file='annotations/test.json',
         data_prefix=dict(img='images/'),
         test_mode=True,
+        metainfo=dict(from_file='configs/_base_/datasets/vertebrae.py'),
         pipeline=val_pipeline,
     ))
 test_dataloader = val_dataloader
