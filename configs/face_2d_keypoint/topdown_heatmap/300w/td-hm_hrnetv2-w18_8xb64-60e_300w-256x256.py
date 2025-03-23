@@ -153,6 +153,6 @@ test_dataloader = val_dataloader
 val_evaluator = dict(
     type='NME',
     norm_mode='keypoint_distance',
-    keypoint_indices=[0, 67]
+    keypoint_indices=list(range(68))
 )
 test_evaluator = val_evaluator
