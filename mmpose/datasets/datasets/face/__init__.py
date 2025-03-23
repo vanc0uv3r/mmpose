@@ -7,7 +7,7 @@ from .face_300w_dataset import Face300WDataset
 from .face_300wlp_dataset import Face300WLPDataset
 from .lapa_dataset import LapaDataset
 from .wflw_dataset import WFLWDataset
-from vertebrae import VertebraeDataset
+from .vertebrae import VertebraeDataset
 
 __all__ = [
     'Face300WDataset', 'WFLWDataset', 'AFLWDataset', 'COFWDataset',
