@@ -88,12 +88,7 @@ model = dict(
         conv_kernel_sizes=(1, ),
         loss=dict(type='KeypointMSELoss', use_target_weight=True),
         decoder=codec),
-    test_cfg=dict(
-        flip_test=True,
-        flip_mode='heatmap',
-        shift_heatmap=True,
-        output_keypoint_indices=[0, 1]
-    ))
+    )
 
 # base dataset settings
 dataset_type = 'VertebraeDataset'
@@ -147,7 +142,7 @@ val_dataloader = dict(
         test_mode=True,
         pipeline=val_pipeline,
     ))
-test_dataloader = val_dataloader
+# test_dataloader = val_dataloader
 
 # evaluators
 val_evaluator = dict(
@@ -155,4 +150,4 @@ val_evaluator = dict(
     # norm_mode='keypoint_distance',
     # keypoint_indices=list(range(68))
 )
-test_evaluator = val_evaluator
+# test_evaluator = val_evaluator
