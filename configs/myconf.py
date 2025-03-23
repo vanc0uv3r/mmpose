@@ -118,3 +118,8 @@ test_dataloader = dict(
         ),
         pipeline=test_pipeline
     )
+
+test_evaluator = dict(
+    type='NME',
+    norm_mode='keypoint_distance',
+)
