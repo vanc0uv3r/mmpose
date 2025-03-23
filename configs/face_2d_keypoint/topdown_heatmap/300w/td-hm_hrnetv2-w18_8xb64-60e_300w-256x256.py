@@ -92,6 +92,7 @@ model = dict(
         flip_test=True,
         flip_mode='heatmap',
         shift_heatmap=True,
+        output_keypoint_indices=[0, 1]
     ))
 
 # base dataset settings
